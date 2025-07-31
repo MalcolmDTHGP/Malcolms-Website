@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Achievements</title>
+  <link rel="stylesheet" href="./css_dude.css">
+</head>
+<body>
+  <nav>
+    <a href="./M@lc0lm'$ WeLc0m&.html">Welcome</a>
+    <a href="./M@lc0lm'$ Sk!Ll$.html">Skills</a>
+    <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html">Achievements</a>
+    <a href="./M@lc0lm'$ G0@L$.html">Goals</a>
+    <a href="./M@lc0lm'$ g0oDbY&.html">Goodbye</a>
+  </nav>
+
+  <h1 class="welcome floating-text" style="position: relative; bottom: 610px; font-size: 150px;">
+    My Achievements
+  </h1>
+
+  <!-- Portal to Skills -->
+  <a href="./skills.html" class="portal-back-button-achievements" id="portal-return-achievements">
+    <img
+      class="portal-back-img-achievements"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Back to Skills"
+    >
+  </a>
+
+  <!-- Portal to Goals -->
+  <a href="./M@lc0lm'$ G0@L$.html" class="portal-next-button-achievements" id="portal-next-achievements">
+    <img
+      class="portal-next-img-achievements"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="To Goals"
+    >
+  </a>
+
+  <!-- Fade overlay for page load -->
+  <div id="fade-overlay-achievements"></div>
+
+  <!-- Fade overlay for portal transitions -->
+  <div id="fade-screen-skills"></div>
+  <div id="fade-screen-goals"></div>
+
+  <!-- Styles -->
+  <style>
+    #fade-overlay-achievements {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    #fade-screen-skills,
+    #fade-screen-goals {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    .portal-back-button-achievements,
+    .portal-next-button-achievements {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-back-img-achievements {
+      position: relative;
+      top: 300px;
+      right: 580px;
+      width: 380px;
+      height: 380px;
+      transform: scaleX(-1) rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-back-button-achievements:hover .portal-back-img-achievements {
+      transform: scaleX(-1.1) rotate(45deg);
+    }
+
+    .portal-next-img-achievements {
+      position: relative;
+      top: 100px;
+      left: 560px;
+      width: 380px;
+      height: 380px;
+      transform: rotate(-45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-next-button-achievements:hover .portal-next-img-achievements {
+      transform: scale(1.1) rotate(-45deg);
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    // Fade in on load
+    window.onload = () => {
+      const fadeIn = document.getElementById('fade-overlay-achievements');
+      fadeIn.style.opacity = '0';
+      setTimeout(() => fadeIn.style.display = 'none', 1000);
+    };
+
+    // Fade to black and go to Skills
+    const portalBack = document.getElementById('portal-return-achievements');
+    const fadeToSkills = document.getElementById('fade-screen-skills');
+
+    portalBack.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalBack.style.cursor = 'default';
+      fadeToSkills.style.pointerEvents = 'auto';
+      fadeToSkills.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = portalBack.href;
+      }, 2000);
+    });
+
+    // Fade to black and go to Goals
+    const portalNext = document.getElementById('portal-next-achievements');
+    const fadeToGoals = document.getElementById('fade-screen-goals');
+
+    portalNext.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalNext.style.cursor = 'default';
+      fadeToGoals.style.pointerEvents = 'auto';
+      fadeToGoals.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = portalNext.href;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

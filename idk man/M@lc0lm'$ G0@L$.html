@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goals</title>
+  <link rel="stylesheet" href="./css_dude.css">
+</head>
+<body>
+  <nav>
+    <a href="./M@lc0lm'$ WeLc0m&.html">Welcome</a>
+    <a href="./M@lc0lm'$ Sk!Ll$.html">Skills</a>
+    <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html">Achievements</a>
+    <a href="./M@lc0lm'$ G0@L$.html">Goals</a>
+    <a href="./M@lc0lm'$ g0oDbY&.html">Goodbye</a>
+  </nav>
+
+  <h1 class="welcome floating-text" style="position: relative; bottom: 610px; font-size: 150px;">
+    My Goals
+  </h1>
+
+  <!-- Portal BACK to Achievements -->
+  <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html" class="portal-back-button-goals" id="portal-back-goals">
+    <img
+      class="portal-back-img-goals"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Back to Achievements"
+    >
+  </a>
+
+  <!-- Portal TO Goodbye #1 -->
+  <a href="./M@lc0lm'$ g0oDbY&.html" class="portal-forward-button-goals" id="portal-next-goals-1">
+    <img
+      class="portal-forward-img-goals"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Go to Goodbye"
+    >
+  </a>
+
+  <!-- Portal TO Goodbye #2 -->
+  <a href="./M@lc0lm'$ g0oDbY&.html" class="portal-forward-button-goals-2" id="portal-next-goals-2">
+    <img
+      class="portal-forward-img-goals-2"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Go to Goodbye"
+    >
+  </a>
+
+  <!-- Fade on page load -->
+  <div id="fade-overlay-goals"></div>
+
+  <!-- Fade to black on navigation -->
+  <div id="fade-screen-achievements"></div>
+  <div id="fade-screen-goodbye"></div>
+
+  <style>
+    /* Fade In Overlay */
+    #fade-overlay-goals {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    /* Shared fade out screens */
+    #fade-screen-achievements,
+    #fade-screen-goodbye {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    /* BACK portal (to achievements) */
+    .portal-back-button-goals {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-back-img-goals {
+      position: relative;
+      top:700px;
+      left: -570px;
+      width: 380px;
+      height: 380px;
+      transform: scaleX(-1) rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-back-button-goals:hover .portal-back-img-goals {
+      transform: scaleX(-1.1) rotate(45deg);
+    }
+
+    /* FORWARD portal #1 (to goodbye) */
+    .portal-forward-button-goals {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-forward-img-goals {
+      position: relative;
+      top: 150px;
+      left: 550px;
+      width: 380px;
+      height: 380px;
+      transform: rotate(-45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-forward-button-goals:hover .portal-forward-img-goals {
+      transform: scale(1.1) rotate(-45deg);
+    }
+
+    /* FORWARD portal #2 (to goodbye) */
+    .portal-forward-button-goals-2 {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-forward-img-goals-2 {
+      position: relative;
+      top: 300px;
+      left: 180px;
+      width: 280px;
+      height: 280px;
+      transform: rotate(-30deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-forward-button-goals-2:hover .portal-forward-img-goals-2 {
+      transform: scale(1.1) rotate(-30deg);
+    }
+  </style>
+
+  <script>
+    // Fade-in on page load
+    window.onload = () => {
+      const fade = document.getElementById('fade-overlay-goals');
+      fade.style.opacity = '0';
+      setTimeout(() => fade.style.display = 'none', 1000);
+    };
+
+    // Back to Achievements
+    const portalBack = document.getElementById('portal-back-goals');
+    const fadeAchievements = document.getElementById('fade-screen-achievements');
+
+    portalBack.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalBack.style.cursor = 'default';
+      fadeAchievements.style.pointerEvents = 'auto';
+      fadeAchievements.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = portalBack.href;
+      }, 2000);
+    });
+
+    // Forward to Goodbye (portal 1)
+    const portalNext1 = document.getElementById('portal-next-goals-1');
+    const fadeGoodbye = document.getElementById('fade-screen-goodbye');
+
+    portalNext1.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalNext1.style.cursor = 'default';
+      fadeGoodbye.style.pointerEvents = 'auto';
+      fadeGoodbye.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = portalNext1.href;
+      }, 2000);
+    });
+
+    // Forward to Goodbye (portal 2)
+    const portalNext2 = document.getElementById('portal-next-goals-2');
+
+    portalNext2.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalNext2.style.cursor = 'default';
+      fadeGoodbye.style.pointerEvents = 'auto';
+      fadeGoodbye.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = portalNext2.href;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

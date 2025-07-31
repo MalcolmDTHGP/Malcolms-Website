@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goodbye</title>
+  <link rel="stylesheet" href="./css_dude.css">
+</head>
+<body>
+  <nav>
+    <a href="./M@lc0lm'$ WeLc0m&.html">Welcome</a>
+    <a href="./M@lc0lm'$ Sk!Ll$.html">Skills</a>
+    <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html">Achievements</a>
+    <a href="./M@lc0lm'$ G0@L$.html">Goals</a>
+    <a href="./M@lc0lm'$ g0oDbY&.html">Goodbye</a>
+  </nav>
+
+  <h1 class="welcome floating-text" style="position: relative; bottom: 610px; font-size: 150px;">
+    Goodbye
+  </h1>
+
+  <!-- Portal BACK to Goals -->
+  <a href="./M@lc0lm'$ G0@L$.html" class="portal-back-button-goodbye" id="portal-back-goodbye">
+    <img
+      class="portal-back-img-goodbye"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Back to Goals"
+    >
+  </a>
+
+  <!-- Portal BACK to Welcome -->
+  <a href="./M@lc0lm'$ WeLc0m&.html" class="portal-home-button-goodbye" id="portal-home-goodbye">
+    <img
+      class="portal-home-img-goodbye"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Back to Welcome"
+    >
+  </a>
+
+  <!-- Fade In on Load -->
+  <div id="fade-overlay-goodbye"></div>
+
+  <!-- Fade Screens for Transitions -->
+  <div id="fade-screen-goals"></div>
+  <div id="fade-screen-home"></div>
+
+  <style>
+    /* Fade on load */
+    #fade-overlay-goodbye {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    /* Fade to black overlays */
+    #fade-screen-goals,
+    #fade-screen-home {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    /* Back portal (to Goals) */
+    .portal-back-button-goodbye {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-back-img-goodbye {
+      position: relative;
+      top: 300px;
+      right: 580px;
+      width: 380px;
+      height: 380px;
+      transform: scaleX(-1) rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-back-button-goodbye:hover .portal-back-img-goodbye {
+      transform: scaleX(-1.1) rotate(45deg);
+    }
+
+    /* Home portal (to Welcome) */
+    .portal-home-button-goodbye {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-home-img-goodbye {
+      position: relative;
+      top: 300px;
+      left: 560px;
+      width: 380px;
+      height: 380px;
+      transform: rotate(-45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-home-button-goodbye:hover .portal-home-img-goodbye {
+      transform: scale(1.1) rotate(-45deg);
+    }
+  </style>
+
+  <script>
+    // Fade-in on load
+    window.onload = () => {
+      const fadeIn = document.getElementById('fade-overlay-goodbye');
+      fadeIn.style.opacity = '0';
+      setTimeout(() => fadeIn.style.display = 'none', 1000);
+    };
+
+    // Back to Goals
+    const backPortal = document.getElementById('portal-back-goodbye');
+    const fadeGoals = document.getElementById('fade-screen-goals');
+
+    backPortal.addEventListener('click', function(event) {
+      event.preventDefault();
+      backPortal.style.cursor = 'default';
+      fadeGoals.style.pointerEvents = 'auto';
+      fadeGoals.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = backPortal.href;
+      }, 2000);
+    });
+
+    // Back to Welcome
+    const homePortal = document.getElementById('portal-home-goodbye');
+    const fadeHome = document.getElementById('fade-screen-home');
+
+    homePortal.addEventListener('click', function(event) {
+      event.preventDefault();
+      homePortal.style.cursor = 'default';
+      fadeHome.style.pointerEvents = 'auto';
+      fadeHome.style.opacity = '1';
+      setTimeout(() => {
+        window.location.href = homePortal.href;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

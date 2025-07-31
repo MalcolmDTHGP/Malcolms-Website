@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skills</title>
+  <link rel="stylesheet" href="./css_dude.css">
+</head>
+<body>
+  <nav>
+    <a href="./M@lc0lm'$ WeLc0m&.html">Welcome</a>
+    <a href="./M@lc0lm'$ Sk!Ll$.html">Skills</a>
+    <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html">Achievements</a>
+    <a href="./M@lc0lm'$ G0@L$.html">Goals</a>
+    <a href="./M@lc0lm'$ g0oDbY&.html">Goodbye</a>
+  </nav>
+
+  <h1 
+    class="welcome floating-text" 
+    style="position: relative; bottom: 225px; font-size: 150px;"
+  >My Skills</h1>
+
+  <!-- Fade overlay on page load -->
+  <div id="fade-overlay"></div>
+
+  <!-- Portal to Welcome -->
+  <a href="./M@lc0lm'$ WeLc0m&.html" class="portal-back-button" id="portal-return">
+    <img
+      class="portal-back-img2"
+          style="position: relative; top: 555px; left: px; width: 380px; height: 380px;"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Return Portal"
+    >
+  </a>
+
+  <!-- Portal to Achievements -->
+  <a href="./M@lc0lm'$ @Ch!EvEm&Nt$j.html" class="portal-next-button" id="portal-next">
+    <img
+      class="portal-next-img"
+      src="https://i.ibb.co/WGk3GWN/Portal.gif"
+      alt="Next Portal"
+    >
+  </a>
+
+  <!-- Fade overlays -->
+  <div id="fade-screen-back"></div>
+  <div id="fade-screen-next"></div>
+
+  <!-- Styles -->
+  <style>
+    #fade-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+
+    .portal-back-button {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-back-img2 {
+      position: relative;
+      top: 370px;
+      right: 570px;
+      width: 380px;
+      height: 380px;
+      transform: scaleX(-1) rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-back-button:hover .portal-back-img2 {
+      transform: scaleX(-1.1) rotate(45deg);
+    }
+
+    .portal-next-button {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .portal-next-img {
+      position: relative;
+      top: 160px;
+      left: 570px;
+      width: 380px;
+      height: 380px;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+
+    .portal-next-button:hover .portal-next-img {
+      transform: scale(1.1) rotate(45deg);
+    }
+
+    #fade-screen-back,
+    #fade-screen-next {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 9999;
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    window.onload = () => {
+      const fadeOverlay = document.getElementById('fade-overlay');
+      fadeOverlay.style.opacity = '0';
+      setTimeout(() => fadeOverlay.style.display = 'none', 1000);
+    };
+
+    const portalReturn = document.getElementById('portal-return');
+    const fadeScreenBack = document.getElementById('fade-screen-back');
+
+    portalReturn.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalReturn.style.cursor = 'default';
+      fadeScreenBack.style.pointerEvents = 'auto';
+      fadeScreenBack.style.opacity = '1';
+
+      setTimeout(() => {
+        window.location.href = portalReturn.href;
+      }, 2000);
+    });
+
+    const portalNext = document.getElementById('portal-next');
+    const fadeScreenNext = document.getElementById('fade-screen-next');
+
+    portalNext.addEventListener('click', function(event) {
+      event.preventDefault();
+      portalNext.style.cursor = 'default';
+      fadeScreenNext.style.pointerEvents = 'auto';
+      fadeScreenNext.style.opacity = '1';
+
+      setTimeout(() => {
+        window.location.href = portalNext.href;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
